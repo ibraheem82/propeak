@@ -4,6 +4,7 @@ import nunjucks from 'nunjucks';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
+import compression from 'compression';
 import indexRouter from './src/routes/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,8 +20,14 @@ nunjucks.configure('views', {
     noCache: true  // Disable caching to pick up template changes
 });
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Enable Compression
+app.use(compression());
+
+// Serve static files with caching
+app.use(express.static(path.join(__dirname, 'public'), {
+    maxAge: '1d', // Cache for 1 day
+    etag: false
+}));
 app.use(cookieParser());
 
 // Language Middleware

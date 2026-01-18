@@ -13069,3 +13069,9 @@ ul.blocks-gallery-grid li:before {
 .footer-area .footer-widget .footer-social-area .social-icon-02 li {
   display: inline-block;
 }
+
+/* Nav Adjustment (Push Up) */
+.navbar-area {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}

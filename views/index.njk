@@ -47,7 +47,7 @@
         <div class="row">
             {% for feature in features %}
             <div class="col-lg-4 col-md-6">
-                <div class="icon-box-item">
+                <div class="icon-box-item wow fadeInUp" data-wow-delay=".{{ loop.index }}s">
                     <div class="icon">
                         <i class="{{ feature.iconClass }}" style="font-size: 2.5rem; color: var(--main-color-one);"></i>
                     </div>
@@ -142,7 +142,7 @@
             </div>
             <div class="destination-items-wrap">
                 {% for item in destinations.items %}
-                <div class="destination-single-item">
+                <div class="destination-single-item wow fadeInUp" data-wow-delay=".{{ loop.index + 2 }}s">
                     <div class="thumbnail">
                         <img src="{{ item.image }}" alt="">
                     </div>
