@@ -1,0 +1,397 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Banner Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="banner-area home-01">
+    <div class="container custom-container-01">
+        <div class="banner-wrapper">
+            <div class="row">
+                <div class="col-xl-7 col-lg-10">
+                    <div class="banner-inner">
+                        <p class="subtitle">{{ hero.subtitle }}</p>
+                        <h1 class="title">{{ hero.title | safe }}</h1>
+                        <p>{{ hero.description | safe }}</p>
+                        <div class="header-btn">
+                            {% for btn in hero.buttons %}
+                            <div class="btn-wrap {{ 'margin-left-20' if loop.index > 1 }}">
+                                <a href="{{ btn.link }}" class="btn-common {{ btn.class }}">{{ btn.text }}</a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="thumbnail">
+                        {% for shape in hero.images.shapes %}
+                        <img src="{{ shape }}" class="element-0{{ loop.index }}" alt="shape">
+                        {% endfor %}
+                        <img src="{{ hero.images.main }}" class="banner-img" alt="Student">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Banner Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Features Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="features-section margin-top-100">
+    <img src="assets/img/shapes/graduation.png" class="shape" alt="graduation cap">
+    <div class="container custom-container-01">
+        <div class="row">
+            {% for feature in features %}
+            <div class="col-lg-4 col-md-6">
+                <div class="icon-box-item">
+                    <div class="icon">
+                        <i class="{{ feature.iconClass }}" style="font-size: 2.5rem; color: var(--main-color-one);"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">{{ feature.title }}</h4>
+                        <p>{{ feature.description }}</p>
+                    </div>
+                    <div class="btn-wrap">
+                        <a href="{{ feature.link }}" class="more-btn">Learn More <i
+                                class="fa-solid fa-angle-right icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Features Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Feedback Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="feedback-section margin-top-110">
+    <div class="container custom-container-01">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="theme-section-title desktop-center text-center">
+                    <span class="subtitle">{{ feedbacks.subtitle }}</span>
+                    <h4 class="title">{{ feedbacks.title | safe }}
+                        <svg class="title-shape" width="355" height="15" viewBox="0 0 355 15" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="path" d="M351.66 12.6362C187.865 -6.32755 49.6478 6.37132 3.41142 12.6362"
+                                stroke="#764AF1" stroke-width="3" stroke-linecap="square" />
+                            <path class="path" d="M351.66 13C187.865 -5.96378 49.6478 6.73509 3.41142 13"
+                                stroke="#764AF1" stroke-width="3" stroke-linecap="square" />
+                            <path class="path" d="M2.5 5.5C168.5 2.0001 280.5 -1.49994 352.5 8.49985" stroke="#FFC44E"
+                                stroke-width="3" stroke-linecap="square" />
+                        </svg>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for student in feedbacks.students %}
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="image-box-item">
+                    <div class="thumbnail">
+                        <img src="{{ student.image }}" alt="">
+                        <a class="video-play-btn mfp-iframe" href="{{ student.video }}">
+                            <svg width="14" height="25" viewBox="0 0 14 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.124 12.6362L0.364909 24.7606L0.36491 0.511875L13.124 12.6362Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <div class="content">
+                            <h6 class="title">{{ student.name }}</h6>
+                            <p>{{ student.university }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Feedback Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Destinations Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="margin-top-110 section-bottom-space">
+    <div class="destination-section">
+        <img src="assets/img/shapes/mountant.png"
+            class="shape-01 wow animate__animated animate__delay-1s animate__fadeInUp" alt="mountant">
+        <div class="plane-wrap">
+            <img src="assets/img/shapes/plane.png" class="shape-02" alt="mountant">
+        </div>
+        <div class="container custom-container-01">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="theme-section-title desktop-center text-center">
+                        <h4 class="title">{{ destinations.title }}</h4>
+                        <p>{{ destinations.description }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="destination-items-wrap">
+                {% for item in destinations.items %}
+                <div class="destination-single-item">
+                    <div class="thumbnail">
+                        <img src="{{ item.image }}" alt="">
+                    </div>
+                    <h6 class="name">{{ item.name }}</h6>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="btn-wrap desktop-center margin-top-40 text-center">
+                <a href="https://themeim.com/" class="btn-common fill-btn style-01">apply online</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Destinations Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    About Section Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="about-section-area section-top-space about-home-02">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="theme-section-title">
+                    <span class="subtitle">{{ about.subtitle }}</span>
+                    <h4 class="title">{{ about.title }}
+                        <svg class="title-shape style-01" width="355" height="15" viewBox="0 0 355 15" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="path" d="M351.66 12.6362C187.865 -6.32755 49.6478 6.37132 3.41142 12.6362"
+                                stroke="#764AF1" stroke-width="3" stroke-linecap="square" />
+                            <path class="path" d="M351.66 13C187.865 -5.96378 49.6478 6.73509 3.41142 13"
+                                stroke="#764AF1" stroke-width="3" stroke-linecap="square" />
+                            <path class="path" d="M2.5 5.5C168.5 2.0001 280.5 -1.49994 352.5 8.49985" stroke="#FFC44E"
+                                stroke-width="3" stroke-linecap="square" />
+                        </svg>
+                    </h4>
+                </div>
+                <div class="about-content-wrap">
+                    {% for paragraph in about.paragraphs %}
+                    <p>{{ paragraph }}</p>
+                    {% endfor %}
+                    <span class="core">Core strength</span>
+                </div>
+                <div class="counter-section-inner style-a">
+                    {% for stat in about.stats %}
+                    <div class="single-counterup color-0{{ loop.index }}">
+                        <div class="content-wrap">
+                            <div class="odo-area">
+                                <h3 class="odometer odo-title {{ 'style-0' + (loop.index - 1) if loop.index > 1 }}"
+                                    data-odometer-final="{{ stat.value }}">0</h3>
+                                {% if stat.suffix %}<h3 class="title">{{ stat.suffix }}</h3>{% endif %}
+                            </div>
+                            <div class="content">
+                                <h6 class="subtitle">{{ stat.label }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="btn-wrap">
+                    <a href="#" class="btn-common fill-btn">Get Free Consultation</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="thumbnail">
+                    <img src="{{ about.image }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    About Section Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Category Section Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="category-section-area">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-wrapper d-flex justify-content-between">
+                    <div class="theme-section-title">
+                        <span class="subtitle">{{ categories.subtitle }}</span>
+                        <h4 class="title">{{ categories.title }}</h4>
+                    </div>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" data-bs-toggle="pill"
+                                data-bs-target="#discipline">Discipline</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="pill" data-bs-target="#collage">Collage</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="discipline">
+                <div class="destination-items-wrap">
+                    {% for item in categories.disciplines %}
+                    <div class="destination-single-item style-01">
+                        <div class="thumbnail">
+                            <img src="{{ item.image }}" alt="">
+                        </div>
+                        <h6 class="name">{{ item.name | safe }}</h6>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="tab-pane fade" id="collage">
+                <div class="destination-items-wrap">
+                    {% for item in categories.disciplines | reverse %}
+                    <div class="destination-single-item style-01">
+                        <div class="thumbnail">
+                            <img src="{{ item.image }}" alt="">
+                        </div>
+                        <h6 class="name">{{ item.name | safe }}</h6>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Category Section Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Steps Section Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="destination-section style-01 margin-top-110 instruction">
+    <div class="container custom-container-01">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="theme-section-title desktop-center text-center">
+                    <span class="subtitle">{{ steps.subtitle }}</span>
+                    <h4 class="title">{{ steps.title }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="destination-items-wrap">
+            {% for item in steps.items %}
+            <div class="destination-single-item style-02">
+                <div class="thumbnail"
+                    style="display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto;">
+                    <i class="{{ item.iconClass }}" style="font-size: 2.5rem; color: var(--main-color-one);"></i>
+                </div>
+                <h6 class="name">{{ item.name | safe }}</h6>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Steps Section Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    News Section Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="news-section-area margin-top-110">
+    <div class="container custom-container-01">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="theme-section-title desktop-center text-center">
+                    <span class="subtitle">{{ news.subtitle }}</span>
+                    <h4 class="title">{{ news.title }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for item in news.items %}
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-grid-item">
+                    <div class="thumbnail">
+                        <img src="{{ item.image }}" alt="" class="{{ 'border-radius-20' if loop.index == 1 }}">
+                    </div>
+                    <div class="content">
+                        <ul class="post-categories">
+                            <li><img src="assets/img/icon/calander.png" alt="">{{ item.date }}</li>
+                            <li>{{ item.time }}</li>
+                        </ul>
+                        <h4 class="title">{{ item.title }}</h4>
+                        <div class="btn-wrap">
+                            <a href="#0" class="more-btn">Read More <i class="fa-solid fa-angle-right icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    News Section Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Faq Section Area Start Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<section class="faq-section-area margin-top-90">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="theme-section-title">
+                    <span class="subtitle">{{ faq.subtitle }}</span>
+                    <h4 class="title">{{ faq.title }}</h4>
+                </div>
+                <div class="faq-content">
+                    <h6 class="subtitle">{{ faq.description | safe }}</h6>
+                    <div class="btn-wrap">
+                        <a href="#0" class="btn-common flat-btn">ASK YOUR QUESTIONS</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="accordion-wrapper">
+                    <div id="accordionOne">
+                        {% for item in faq.items %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{ loop.index }}">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" role="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false"
+                                        aria-controls="collapse{{ loop.index }}">
+                                        {{ item.question }}
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapse{{ loop.index }}" class="collapse {{ 'show' if loop.index == 3 }}"
+                                data-bs-parent="#accordionOne">
+                                <div class="card-body">
+                                    {{ item.answer }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Faq Section Area End Here
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+{% endblock %}
