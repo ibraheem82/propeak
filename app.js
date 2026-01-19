@@ -40,6 +40,13 @@ app.use((req, res, next) => {
         // Fallback to cookie or default to 'en'
         req.lang = req.cookies.lang || 'en';
     }
+
+//     req.lang: Stores the language for use in your backend logic (e.g., querying the correct database translation).
+
+// res.locals.lang: Magically passes this variable to your views/templates (Nunjucks).
+
+// This means in your HTML file, you can just write {{ lang }} or {% if lang == 'pl' %} without having to manually pass the variable in every single res.render call.
+
     // Make lang available to templates
     res.locals.lang = req.lang;
     next();
